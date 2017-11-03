@@ -63,6 +63,21 @@ class QuestionsController < ApplicationController
     end
   end
 
+  def answer_create
+    question = params[:question]
+    @answer = current_user.answer.new(answer_params)
+    respond_to do |format|
+      if @answer.save
+        format.html { redirect_to :return_to, notice: 'Answer was successfully created.' }
+        format.json { redirect_to "question/:question", status: :created, location: @answer }
+      else
+        format.html { render :new }
+        format.json { render json: @answer.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_question

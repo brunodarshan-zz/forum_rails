@@ -1,33 +1,30 @@
-<p id="notice"><%= notice %></p>
-
-<header>
+<%- model_class = Question -%>
+<div class="page-header">
   <h2><%= @question.title %></h2>
-  <span> <strong>User:</strong> <%= @question.user.email %> </span>
-</header>
-
-<div class="content">
-  <p> <%= @question.description %> </p>
-  <hr>
-  <p> <%= link_to "Answer this question", new_answer_url(question:  @question) %></p>
-  <div class="">
-    <% @answers.each do |answer| %>
-      <div>
-        <span><small>By: <%= answer.user.email %>  <%= answer.updated_at.strftime(" on %m/%b/%Y") %></small></span>
-        <div><%= answer.content %></divs>
-
-
-        <% if current_user == answer.user %>
-            <td><%= link_to 'Edit', edit_answer_path(answer) %></td>
-            <td><%= link_to 'Destroy', answer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <% end %>
-      </div>
-      <br>
-    <% end %>
-  </div>
+  <span> By <%= link_to @question.user.email, "#" %> on <%=@question.updated_at.strftime("%d/%b/%Y")%></span>
 </div>
 
+<div class="">
+  <%= @question.description %>
+  <hr>
+  <%unless @answers.nil?%>
+  <div id="answers">
+    <%@answers.each do | answer |%>
+    <div class="card">
+      <%= answer.content %>
+      <div class="card-footer">
+         <span>By <%= answer.user.email%> on <%= answer.updated_at.strftime("%d/%b/%Y")%></span>
+      </div>
+    </div>
+    <% end%>
+  </div>
+  <% end%>
+  <br>
+  <span><%= link_to "Answer this question", new_answer_url(question:  @question), class: "btn btn-default pull-right" %></span>
+</div>
 
+<% if current_user == @question.user %>
 
-
-<%= link_to 'Edit', edit_question_path(@question) %> |
-<%= link_to 'Back', questions_path %>
+<%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_question_path(@question), :class => 'btn btn-default' %>
+<% end %>
