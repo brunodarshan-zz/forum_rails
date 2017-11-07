@@ -19,8 +19,7 @@
     <% end%>
   </div>
   <% end%>
-  <br>
-  <span><%= link_to "Answer this question", new_answer_url(question:  @question), class: "btn btn-default pull-right" %></span>
+  <%= render partial: "form_answer"%>
 </div>
 
 <% if current_user == @question.user %>

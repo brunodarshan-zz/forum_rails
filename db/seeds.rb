@@ -35,5 +35,8 @@ user1 = User.new({
       title: FFaker::Lorem.phrase,
       description: FFaker::Lorem.paragraph,
       }).save
+end
 
+"web, desktop, sistemas, sistemas operacionais, mobile".split(", ").each do | cat |
+  Category.create({name: cat})
 end

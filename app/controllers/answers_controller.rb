@@ -3,24 +3,13 @@ class AnswersController < ApplicationController
   before_action :set_answer, only: [:show, :edit, :update, :destroy]
 
 
-  # GET /answers/new
-  def new
-    @answer = Answer.new
-  end
-
-  # GET /answers/1/edit
-  def edit
-  end
-
   # POST /answers
   # POST /answers.json
   def create
-    question = params[:question]
     @answer = current_user.answer.new(answer_params)
     respond_to do |format|
       if @answer.save
-        format.html { redirect_to :return_to, notice: 'Answer was successfully created.' }
-        format.json { redirect_to "question/:question", status: :created, location: @answer }
+        format.html { redirect_to  @answer.question, notice: 'Answer was successfully created.' }
       else
         format.html { render :new }
         format.json { render json: @answer.errors, status: :unprocessable_entity }
