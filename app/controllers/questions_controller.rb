@@ -8,6 +8,11 @@ class QuestionsController < ApplicationController
     @questions = Question.all
   end
 
+  def search
+    query = params[:query]
+    @questions = Question.where(title: query)
+  end
+
   # GET /questions/1
   # GET /questions/1.json
   def show
