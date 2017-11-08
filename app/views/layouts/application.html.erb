@@ -76,7 +76,7 @@
           <h4>Categoies</h4>
           <ul class="list-group" margin="0">
             <% @categories.each do | cat |%>
-              <li role="presentation" class="list-group-item"><%= link_to  cat.name, "#{cat.slug}" %> <span class="badge"><%=cat.question.all.count%></span> </li>
+              <li role="presentation" class="list-group-item"><%= link_to  cat.name.capitalize, "#{cat.slug}" %> <span class="badge"><%=cat.question.all.count%></span> </li>
             <% end %>
           </ul>
       </div><!--/span-->
