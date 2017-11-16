@@ -1,0 +1,27 @@
+<%- model_class = Question -%>
+
+<div class="page-header">
+  <%= link_to t('.new', :default => t("helpers.links.new")),
+              new_question_path,
+              :class => 'btn btn-primary btn-lg pull-right' %>
+
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
+
+</div>
+
+    <% @questions.each do |question| %>
+      <div class="panel">
+        <div class="card-body">
+          <div class="panel-heading">
+            <h3 class=""><%= link_to question.title, question_path(question) %></h3>
+          </div>
+          <div class="panel-footer">
+            <span><small>By: <%= question.user.email %> <%= question.updated_at.strftime(" on %m/%b/%Y") %></small></span>
+            <%= if current_user == question.user then link_to t('.edit', :default => t("helpers.links.edit")), edit_question_path(question), class: "pull-right btn-xs btn-default" end%>
+          </div>
+        </div>
+
+
+      </div>
+
+    <% end %>

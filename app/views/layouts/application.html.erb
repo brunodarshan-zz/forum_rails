@@ -54,7 +54,7 @@
               <li><%= link_to "Login",  new_user_session_path  %></li>
               <li><%= link_to "Registro",  new_user_registration_path  %></li>
             <% else %>
-              <li><a href="#">Olá <%= current_user.email %>!</a></li>
+              <li> <%= link_to "Olá, #{ current_user.email}", perfil_index_path(current_user.perfil) %></li>
               <li><%= link_to "Logout", destroy_user_session_path, method: :delete%></li>
             <% end %>
           </ul>
@@ -76,7 +76,7 @@
           <h4>Categoies</h4>
           <ul class="list-group" margin="0">
             <% @categories.each do | cat |%>
-              <li role="presentation" class="list-group-item"><%= link_to  cat.name.capitalize, "#{cat.slug}" %> <span class="badge"><%=cat.question.all.count%></span> </li>
+              <li role="presentation" class="list-group-item"><%= link_to  cat.name.capitalize, search_path(cat.slug) %> <span class="badge"><%=cat.question.all.count%></span> </li>
             <% end %>
           </ul>
       </div><!--/span-->

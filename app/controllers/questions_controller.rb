@@ -1,6 +1,6 @@
 class QuestionsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
-  before_action :set_question, only: [:show, :edit, :update, :destroy]
+  before_action :set_question,  only: [:show, :edit, :update, :destroy]
 
   # GET /questions
   # GET /questions.json
@@ -9,8 +9,8 @@ class QuestionsController < ApplicationController
   end
 
   def search
-    query = params[:query]
-    @questions = Question.where(title: query)
+    category = Category.find_by_slug(params[:query])
+    @questions = Question.where(category_id: category.id)
   end
 
   # GET /questions/1

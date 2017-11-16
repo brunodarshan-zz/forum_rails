@@ -6,4 +6,7 @@ class User < ApplicationRecord
 
   has_many :question
   has_many :answer
+  has_one :perfil
+
+
 end
