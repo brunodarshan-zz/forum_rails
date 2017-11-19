@@ -1,4 +1,15 @@
 
-<%= form_for @perfil, :html => { :class => "form-horizontal perfil" } do |f| %>
-  <%= f.text_field :username  %>
+<%= form_for @perfil, html:  { :class => "form-horizontal perfil" } do |f| %>
+  <div class="form-group">
+    <%= f.text_field :username, class: "form-input", value: @perfil.username  %>
+  </div>
+  <div class="form-group">
+    <%= f.text_field :first_name, class: "form-input",  value: @perfil.first_name  %>
+  </div>
+  <div class="form-group">
+    <%= f.text_field :last_name, class: "form-input",  value: @perfil.last_name  %>
+  </div>
+  <div class="form-group">
+    <%= f.submit class: "btn", value: "Update"  %>
+  </div>
 <% end%>

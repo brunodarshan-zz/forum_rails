@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
-  get 'perfil/index'
-
-  get 'perfil/edit'
+  resources :perfil
 
   devise_for :users
   resources :answers

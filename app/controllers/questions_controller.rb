@@ -5,7 +5,11 @@ class QuestionsController < ApplicationController
   # GET /questions
   # GET /questions.json
   def index
-    @questions = Question.all
+    if current_user && current_user.perfil.nil?
+      redirect_to perfil_index_path
+    end
+    @questions = Question.all  
+    
   end
 
   def search

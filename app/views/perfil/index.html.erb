@@ -1,2 +1,14 @@
-<h1><%= @perfil.username %></h1>
-<p>Find me in app/views/perfil/index.html.erb</p>
+<div class="panel">
+    <div class=panel-head>
+        <h3><%= @perfil.username %></h3>
+        <%= link_to "Editar", edit_perfil_path(@perfil) %>
+    </div>
+    <div class="panel-block">
+        <dl class="dl-vertical">        
+        <dt>Primero Nome</dt>
+        <dd><h5><%=  (@perfil.first_name?) ?  @perfil.first_name : (link_to "Preencher campo", edit_perfil_path( @perfil) )  %></h5></dd>
+        <dt>Segundo Nome</dt>
+        <dd><h5><%=  (@perfil.last_name?) ?  @perfil.last_name : ( link_to "Preencher campo", edit_perfil_path(@perfil) ) %></h5></dd>
+    </dl>
+    </div>
+</div>
