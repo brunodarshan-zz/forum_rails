@@ -9,7 +9,7 @@
     <%= @question.description %>
   </div>
 
-  <%unless @answers.nil?%>
+  <% unless @answers.nil? %>
   <hr>
   <div id="answers" class="">
     <%@answers.each do | answer |%>

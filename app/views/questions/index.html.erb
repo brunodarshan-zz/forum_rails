@@ -17,8 +17,8 @@
             <div class="col-sm-8">
             <h3 class=""><%= link_to question.title, question_path(question) %></h3>
             </div>
-            <div class="col-sm-4">
-            <%= question.answers.all.count %>
+            <div class="col-sm-4 text-center">
+           <small>answers: </small> <h3><%= question.answers %></h3>
             </div>
             </div>
           </div>

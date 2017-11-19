@@ -6,4 +6,8 @@ class Question < ApplicationRecord
 
   friendly_id :category_id
 
+  def answers
+     @answers = Answer.where(question: self).count
+  end
+
 end

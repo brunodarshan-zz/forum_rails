@@ -20,7 +20,7 @@ class QuestionsController < ApplicationController
   # GET /questions/1
   # GET /questions/1.json
   def show
-      @answers = Answer.all.where(question: @question)
+      @answers = Answer.where(question: @question)
       @answer = Answer.new()
   end
 
