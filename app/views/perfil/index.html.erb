@@ -1,14 +1,20 @@
-<div class="panel">
-    <div class=panel-head>
-        <h3><%= @perfil.username %></h3>
-        <%= link_to "Editar", edit_perfil_path(@perfil) %>
-    </div>
-    <div class="panel-block">
-        <dl class="dl-vertical">        
-        <dt>Primero Nome</dt>
-        <dd><h5><%=  (@perfil.first_name?) ?  @perfil.first_name : (link_to "Preencher campo", edit_perfil_path( @perfil) )  %></h5></dd>
-        <dt>Segundo Nome</dt>
-        <dd><h5><%=  (@perfil.last_name?) ?  @perfil.last_name : ( link_to "Preencher campo", edit_perfil_path(@perfil) ) %></h5></dd>
-    </dl>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-2">
+            <img src="<%= @perfil.avatar.url%>" alt="" class="img-responsive">    
+            <h3><%= @perfil.username %></h3>
+                </div>
+            </div>
+            
+            <%= link_to "Editar", edit_perfil_path(@perfil) %>
+        </div>
+        <div class="col-sm-4">
+            <dl class="dl-vertical">        
+            <dt>Primero Nome</dt>
+            <dd><h5><%=  (@perfil.first_name?) ?  @perfil.first_name : (link_to "Preencher campo", edit_perfil_path( @perfil) )  %></h5></dd>
+            <dt>Segundo Nome</dt>
+            <dd><h5><%=  (@perfil.last_name?) ?  @perfil.last_name : ( link_to "Preencher campo", edit_perfil_path(@perfil) ) %></h5></dd>
+        </dl>
+        </div>
     </div>
 </div>

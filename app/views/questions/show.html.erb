@@ -18,7 +18,10 @@
         <%= answer.content %>
       </div>
       <div class="panel-footer">
-         <span>By <%= answer.user.email%> on <%= answer.updated_at.strftime("%d/%b/%Y")%></span>
+          <% unless answer.user.perfil.avatar.nil? %>
+          <img src="<%= answer.user.perfil.avatar.url %>" alt="" width="40" height="auto">
+          <% end %>
+         <span> <%= answer.user.perfil %> on <%= answer.updated_at.strftime("%d/%b/%Y")%></span>
       </div>
     </div>
     <% end%>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171112171216) do
+ActiveRecord::Schema.define(version: 20171124004234) do
 
   create_table "answers", force: :cascade do |t|
     t.text     "content"
@@ -49,6 +49,7 @@ ActiveRecord::Schema.define(version: 20171112171216) do
     t.datetime "updated_at", null: false
     t.string   "username"
     t.integer  "user_id"
+    t.string   "avatar"
     t.index ["user_id"], name: "index_perfils_on_user_id"
   end
 

@@ -58,3 +58,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # Added at 2017-11-07 09:41:24 -0300 by criacao:
 gem "friendly_id", "~> 5.2"
+
+# Added at 2017-11-23 21:50:46 -0200 by darshan:
+gem "carrierwave", "~> 1.2"
