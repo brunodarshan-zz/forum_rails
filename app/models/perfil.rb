@@ -7,4 +7,8 @@ class Perfil < ApplicationRecord
   def to_s
     return self.username
   end
+
+  def has_avatar?
+    self.avatar.length > 0 ? true : false
+  end
 end

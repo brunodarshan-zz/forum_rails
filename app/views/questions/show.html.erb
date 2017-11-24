@@ -18,9 +18,11 @@
         <%= answer.content %>
       </div>
       <div class="panel-footer">
-          <% unless answer.user.perfil.avatar.nil? %>
-          <img src="<%= answer.user.perfil.avatar.url %>" alt="" width="40" height="auto">
-          <% end %>
+        <%if answer.user.perfil.has_avatar?  %>
+          <%= image_tag(answer.user.perfil.avatar.url, size: "30")  %>
+        <% end %>
+          
+          
          <span> <%= answer.user.perfil %> on <%= answer.updated_at.strftime("%d/%b/%Y")%></span>
       </div>
     </div>

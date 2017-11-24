@@ -8,5 +8,8 @@ class User < ApplicationRecord
   has_many :answer
   has_one :perfil
 
+  def username
+    self.perfil.to_s
+  end
 
 end

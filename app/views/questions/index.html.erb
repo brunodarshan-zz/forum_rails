@@ -23,7 +23,7 @@
             </div>
           </div>
           <div class="panel-footer">
-            <span><small>By: <%= question.user.email %> <%= question.updated_at.strftime(" on %m/%b/%Y") %></small></span>
+            <span><small>By: <%= question.user.username %> <%= question.updated_at.strftime(" on %m/%b/%Y") %></small></span>
             <%= if current_user == question.user then link_to t('.edit', :default => t("helpers.links.edit")), edit_question_path(question), class: "pull-right btn-xs btn-default" end%>
           </div>
         </div>
