@@ -13,33 +13,36 @@ end
 
 
 # Creating Users
-user1 = User.create({
-  email: "user1@example.com",
-  password: "123456",
-  password_confirmation: "123456"
-  })
-
-
-  user2 = User.create({
-    email: "user2@example.com",
+user=[]
+3.times do | i |
+  user[i] = User.create({
+    email: "user#{i}@example.com",
     password: "123456",
     password_confirmation: "123456"
   })
-
+end
 
 ## Someone Questions
-unless user1.nil? || user2.nil?
-  3.times do
-    user1.question.create!({
+unless user.nil?
+  4.times do
+    u = user.shuffle.first
+    u.question.create!({
       title: FFaker::Lorem.phrase,
       description: FFaker::Lorem.paragraph,
       category: Category.all.to_a.shuffle.first
-      })
+      })    
+  end
 
-    user2.question.create!({
-      title: FFaker::Lorem.phrase,
-      description: FFaker::Lorem.paragraph,
-      category: Category.all.to_a.shuffle.first
-      })
-    end
+  questions = Question.all
+  6.times do
+    u = user.shuffle.first
+    
+    a = u.answer.create!(
+      content: FFaker::Lorem.paragraph,
+      question_id: questions.shuffle.first.id
+    )
+    
+  end
 end
+
+

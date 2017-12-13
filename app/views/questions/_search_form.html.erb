@@ -1,0 +1,16 @@
+
+  <div class="jumbotron text-center">
+    <h1>What are you looking for?</h1>
+<hr>
+  <div class="row">
+    <div class="col-sm-offset-3 col-sm-6">
+      <%= form_for questions_path, method: :get, class: "form-horizontal" do | q |%>
+          <div class="form-group">
+            <%= q.text_field_tag :query, nil , placeholder: "Lorem ipsum dolor", class: "form-control" %>
+          </div>
+          
+            <%= q.submit class: "btn btn-primary", value: "search" %>
+          
+      <% end %>
+    </div>
+</div>

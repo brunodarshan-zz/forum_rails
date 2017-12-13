@@ -10,4 +10,9 @@ class Question < ApplicationRecord
      @answers = Answer.where(question: self).count
   end
 
+  def self.search(s)
+     where("title LIKE ?", "%#{s}%")
+     where("description LIKE ?", "%#{s}%")
+    
+  end
 end

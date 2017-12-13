@@ -8,14 +8,14 @@ class QuestionsController < ApplicationController
     if current_user && current_user.perfil.nil?
       redirect_to perfil_index_path
     end
-    @questions = Question.all  
     
+    if params[:query].present?
+      @questions = Question.search params[:query]
+    else
+      @questions = Question.all    
+    end
   end
 
-  def search
-    category = Category.find_by_slug(params[:query])
-    @questions = Question.where(category_id: category.id)
-  end
 
   # GET /questions/1
   # GET /questions/1.json
@@ -28,6 +28,8 @@ class QuestionsController < ApplicationController
   def new
     @question = Question.new
   end
+
+
 
   # GET /questions/1/edit
   def edit

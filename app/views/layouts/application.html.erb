@@ -48,8 +48,12 @@
 
         <%= link_to "Forum", root_path, class: "navbar-brand" %>
         <div class="navbar-collapse collapse navbar-responsive-collapse">
-          <ul class="nav navbar-nav navbar-right">
+          
+          
 
+        
+
+          <ul class="nav navbar-nav navbar-right">
             <% unless current_user %>
               <li><%= link_to "Login",  new_user_session_path  %></li>
               <li><%= link_to "Registro",  new_user_registration_path  %></li>
@@ -66,7 +70,7 @@
       <%= bootstrap_flash %>
 
       <%if current_page?(root_path)%>
-        <%= render partial: "search" %>
+        <%= render partial: "search_form" %>
       <%end%>
     </header>
     <div class="container-fluid">
@@ -76,7 +80,7 @@
           <h4>Categoies</h4>
           <ul class="list-group" margin="0">
             <% @categories.each do | cat |%>
-              <li role="presentation" class="list-group-item"><%= link_to  cat.name.capitalize, search_path(cat.slug) %> <span class="badge"><%=cat.question.all.count%></span> </li>
+              <li role="presentation" class="list-group-item"><%= link_to  cat.name.capitalize, questions_path(cat.slug) %> <span class="badge"><%=cat.question.all.count %></span> </li>
             <% end %>
           </ul>
       </div><!--/span-->
