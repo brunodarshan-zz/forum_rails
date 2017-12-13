@@ -61,3 +61,6 @@ gem "friendly_id", "~> 5.2"
 
 # Added at 2017-11-23 21:50:46 -0200 by darshan:
 gem "carrierwave", "~> 1.2"
+
+# Added at 2017-12-13 00:33:00 -0200 by darshan:
+gem "pg", "~> 0.21.0"
